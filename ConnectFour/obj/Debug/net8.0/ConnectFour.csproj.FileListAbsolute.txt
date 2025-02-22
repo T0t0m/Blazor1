@@ -1,0 +1,5 @@
+c:\Users\TFABZ10J\Desktop\Tuto\Blazor\ConnectFour\obj\Debug\net8.0\ConnectFour.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\TFABZ10J\Desktop\Tuto\Blazor\ConnectFour\obj\Debug\net8.0\ConnectFour.AssemblyInfoInputs.cache
+c:\Users\TFABZ10J\Desktop\Tuto\Blazor\ConnectFour\obj\Debug\net8.0\ConnectFour.AssemblyInfo.cs
+c:\Users\TFABZ10J\Desktop\Tuto\Blazor\ConnectFour\obj\Debug\net8.0\ConnectFour.csproj.CoreCompileInputs.cache
+c:\Users\TFABZ10J\Desktop\Tuto\Blazor\ConnectFour\obj\Debug\net8.0\ConnectFour.MvcApplicationPartsAssemblyInfo.cache

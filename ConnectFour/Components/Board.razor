@@ -1,0 +1,129 @@
+@using System.Drawing
+
+@inject GameState State
+
+<HeadContent>
+    <style>
+        :root {
+            --board-bg: @ColorTranslator.ToHtml(BoardColor);
+            --player1: @ColorTranslator.ToHtml(Player1Color);
+            --player2: @ColorTranslator.ToHtml(Player2Color);
+        }
+    </style>
+</HeadContent>
+
+<!-- Affiche le message de victoire si le jeu est terminé -->
+@if (gameResult != null)
+{
+    <div style="color: @(gameResult == "Match nul" ? "red" : (gameResult.Contains("1") ? "green" : "purple")); font-weight: bold;">
+        @gameResult
+    </div>
+    <button title="Click to reset the game" @onclick="Reset">Recommencer</button>
+}
+
+<!-- Affiche l'erreur si elle existe -->
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div style="color: red; font-weight: bold;">
+        @errorMessage
+    </div>
+}
+
+<nav>
+    @for (byte i = 0; i < 7; i++)
+    {
+        var col = i;
+        <span title="Click to play a piece" @onclick="() => PlayPiece(col)">🔽</span>
+    }
+</nav>
+<div>
+    <div class="board">
+    @for (var i = 0; i < 42; i++)
+    {
+        <span class="container">
+            <span></span>
+        </span>
+    }
+    </div>
+    @for (var i = 0; i < 42; i++)
+    {
+       <span class="@pieces[i]"></span>
+    }
+</div>
+@code {
+    private string[] pieces = new string[42];
+
+    private string errorMessage;  // Variable d'état pour l'erreur
+    private string gameResult;  // Variable d'état pour le message de victoire
+
+    private void PlayPiece(byte col)
+    {
+        // Vérifie si le jeu est terminé
+        if (State.CheckForWin() != ConnectFour.GameState.WinState.No_Winner)
+        {
+            // Récupère le résultat du jeu
+            var result = State.CheckForWin();
+
+            // Détermine le message de victoire ou match nul
+            gameResult = result switch
+            {
+                ConnectFour.GameState.WinState.Player1_Wins => "Le joueur 1 a gagné!",
+                ConnectFour.GameState.WinState.Player2_Wins => "Le joueur 2 a gagné!",
+                ConnectFour.GameState.WinState.Tie => "Match nul!",
+                _ => null
+            };
+
+            // Affiche le message d'erreur si le jeu est terminé
+            errorMessage = "Le jeu est terminé. Impossible de jouer.";
+
+            return;  // Quitte la méthode sans appeler PlayPiece() dans le GameState
+        }
+
+        // Vérifie si la colonne est pleine avant de tenter de jouer
+        if (State.TheBoard[col] != 0)
+        {
+            // Affiche un message indiquant que la colonne est pleine
+            errorMessage = "La colonne est pleine. Impossible de jouer ici.";
+            return; // Quitte la méthode sans jouer
+        }
+
+        // Si le jeu n'est pas terminé, on continue à jouer
+        errorMessage = null; // Réinitialise le message d'erreur, le message disparaît
+        var player = State.PlayerTurn;
+        var turn = State.CurrentTurn;
+        var landingRow = State.PlayPiece(col);
+        
+        // Met à jour la liste des pièces jouées (facultatif, si tu en as besoin)
+        pieces[turn] = $"player{player} col{col} drop{landingRow}";
+    }
+
+    private void Reset()
+    {
+        // Réinitialise l'état du plateau de jeu
+        State.ResetBoard();
+
+        // Réinitialise également d'autres éléments comme l'état du jeu
+        errorMessage = null;
+        gameResult = null;
+
+        // Réinitialise les pièces jouées
+        ConnectFour.GameState.ResetBoard();  // ou la méthode appropriée pour réinitialiser la liste des pièces
+
+        // Optionnel : Réinitialiser d'autres éléments du jeu
+        //State.ResetTurn();  // Si tu as une méthode pour réinitialiser le tour du joueur
+    }
+
+    [Parameter]
+    public Color BoardColor { get; set; } = ColorTranslator.FromHtml("yellow");
+
+    [Parameter]
+    public Color Player1Color { get; set; } = ColorTranslator.FromHtml("red");
+
+    [Parameter]
+    public Color Player2Color { get; set; } = ColorTranslator.FromHtml("blue");
+
+    protected override void OnInitialized()
+    {
+        State.ResetBoard();
+    }
+}

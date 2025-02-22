@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "wIGvN4yLefo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\TFABZ10J\\Desktop\\Tuto\\Blazor\\MyProjectName\\MyProjectName.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.2\\microsoft.aspnetcore.authorization.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.2\\microsoft.aspnetcore.components.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\9.0.2\\microsoft.aspnetcore.components.analyzers.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\9.0.2\\microsoft.aspnetcore.components.forms.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.aspnetcore.components.web\\9.0.2\\microsoft.aspnetcore.components.web.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.aspnetcore.metadata\\9.0.2\\microsoft.aspnetcore.metadata.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.2\\microsoft.extensions.dependencyinjection.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.2\\microsoft.extensions.dependencyinjection.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.2\\microsoft.extensions.logging.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.extensions.options\\9.0.2\\microsoft.extensions.options.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.2\\microsoft.extensions.primitives.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\microsoft.jsinterop\\9.0.2\\microsoft.jsinterop.9.0.2.nupkg.sha512",
+    "C:\\Users\\TFABZ10J\\.nuget\\packages\\myclasslibrary\\1.0.0.2\\myclasslibrary.1.0.0.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Le package 'MyClassLibrary 1.0.0.2' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net9.0'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "libraryId": "MyClassLibrary",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}
